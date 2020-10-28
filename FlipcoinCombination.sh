@@ -137,3 +137,13 @@ percentage[TTH]=$(($TTH*10))
 percentage[TTT]=$(($TTT*10))
 
 echo "percentage output "${percentage[@]}
+
+sorting=( $(printf "%s\n" "${percentage[@]}" | sort -n ))
+
+for i in ${!percentage[@]};
+do
+if [[ ${percentage[$i]} -eq ${sorting[13]} ]]
+then
+    echo "winner is "${i}
+fi
+done
